@@ -106,7 +106,10 @@ class TabPage extends StatelessWidget {
       key: pageStorageKey,
       itemCount: data[dataKey].length,
       itemBuilder: (context, index) {
-        return Image.network(data[dataKey][index]);
+        return FadeInImage(
+          image: NetworkImage(data[dataKey][index]),
+          placeholder: AssetImage('assets/images/no_internet.png'),
+        );
       },
     );
   }
