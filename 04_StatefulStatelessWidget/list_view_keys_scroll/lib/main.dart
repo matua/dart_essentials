@@ -63,21 +63,51 @@ class _MyHomePageState extends State<MyHomePage> {
       length: nav.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Homework example'),
+          title: const Text('Homework example'),
+          bottom: TabBar(
+            tabs: nav
+                .map((tabTitle) => Tab(
+                      text: tabTitle,
+                    ))
+                .toList(),
+          ),
         ),
         body: TabBarView(
-          children: nav.map((name) {
-            return ListView(
-              key: PageStorageKey(name),
-              children: <Widget>[
-                ...fakeData.map((e) {
-                  return Text(e);
-                }).toList()
-              ],
-            );
-          }).toList(),
+          children: [
+            TabPage(
+              data: data,
+              mapKey: 0,
+              pageStorageKey: PageStorageKey(nav[0]),
+            ),
+            TabPage(
+              data: data,
+              mapKey: 1,
+              pageStorageKey: PageStorageKey(nav[1]),
+            ),
+          ],
         ),
       ),
+    );
+  }
+}
+
+class TabPage extends StatelessWidget {
+  final data;
+  final mapKey;
+  final pageStorageKey;
+
+  TabPage({this.data, this.mapKey, this.pageStorageKey});
+
+  @override
+  Widget build(BuildContext context) {
+    final dataKey = data.keys.toList()[mapKey];
+
+    return ListView.builder(
+      key: pageStorageKey,
+      itemCount: data[dataKey].length,
+      itemBuilder: (context, index) {
+        return Image.network(data[dataKey][index]);
+      },
     );
   }
 }
