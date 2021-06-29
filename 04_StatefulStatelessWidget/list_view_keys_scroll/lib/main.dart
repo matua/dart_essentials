@@ -106,9 +106,30 @@ class TabPage extends StatelessWidget {
       key: pageStorageKey,
       itemCount: data[dataKey].length,
       itemBuilder: (context, index) {
-        return FadeInImage(
-          image: NetworkImage(data[dataKey][index]),
-          placeholder: AssetImage('assets/images/no_internet.png'),
+        // return FadeInImage(
+        //   // fadeInDuration: const Duration(seconds: 1),
+        //   // fadeInCurve: Curves.elasticIn,
+        //   image: NetworkImage(data[dataKey][index]),
+        //   placeholder: AssetImage('assets/images/no_internet.png'),
+        // );
+        return SizedBox(
+          height: 120,
+          child: Image.network(
+            data[dataKey][index],
+            fit: BoxFit.fill,
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes
+                      : null,
+                ),
+              );
+            },
+          ),
         );
       },
     );
