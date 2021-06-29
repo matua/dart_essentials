@@ -38,7 +38,77 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         drawer: Drawer(
-          child: ListView(),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/skillbox_avatar.png'),
+                  ),
+                ),
+                child: null,
+              ),
+              Column(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.home),
+                    title: Text('Home'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.portrait),
+                    title: Text('Profile'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                    onTap: () {},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.image),
+                    title: Text('Images'),
+                    trailing: Icon(Icons.arrow_forward_ios),
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              Container(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.grey.shade400),
+                          textStyle: MaterialStateProperty.all(
+                            TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text('Выход'),
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.grey.shade400),
+                          textStyle: MaterialStateProperty.all(
+                            TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text('Регистрация'),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: 0,
