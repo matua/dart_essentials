@@ -35,11 +35,19 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          actions: [
+            Builder(
+              builder: (context) => IconButton(
+                icon: Icon(Icons.account_circle_rounded),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              ),
+            ),
+          ],
           title: Text(widget.title),
         ),
         drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
+          child: Column(
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
@@ -71,42 +79,59 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              Container(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.grey.shade400),
-                          textStyle: MaterialStateProperty.all(
-                            TextStyle(
-                              color: Colors.black,
-                            ),
+              Expanded(
+                child: Container(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.grey.shade400),
+                        textStyle: MaterialStateProperty.all(
+                          TextStyle(
+                            color: Colors.black,
                           ),
                         ),
-                        onPressed: () {},
-                        child: Text('Выход'),
                       ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Colors.grey.shade400),
-                          textStyle: MaterialStateProperty.all(
-                            TextStyle(
-                              color: Colors.black,
-                            ),
+                      onPressed: () {},
+                      child: Text('Выход'),
+                    ),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.grey.shade400),
+                        textStyle: MaterialStateProperty.all(
+                          TextStyle(
+                            color: Colors.black,
                           ),
                         ),
-                        onPressed: () {},
-                        child: Text('Регистрация'),
                       ),
-                    ],
-                  ),
+                      onPressed: () {},
+                      child: Text('Регистрация'),
+                    ),
+                  ],
                 ),
               )
+            ],
+          ),
+        ),
+        endDrawer: Drawer(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(bottom: 10),
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 54,
+                  child: Image.asset('assets/skillbox_logo.png'),
+                ),
+              ),
+              Text('Jonathan')
             ],
           ),
         ),
