@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -17,8 +17,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: public_member_api_docs
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, @required this.title}) : super(key: key);
+  // ignore: public_member_api_docs
+  const MyHomePage({Key key, @required this.title}) : super(key: key);
+
+  // ignore: public_member_api_docs
   final String title;
 
   @override
@@ -69,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage>
           ),
           Container(
             color: Colors.red,
-            child: Center(child: const Text('Albums')),
+            child: const Center(child: Text('Albums')),
           ),
         ],
       ),
@@ -83,9 +87,9 @@ class _MyHomePageState extends State<MyHomePage>
                 backgroundColor: Colors.white,
               ),
             ),
-            MyListTile(title: 'Home', icon: const Icon(Icons.home)),
-            MyListTile(title: 'Profile', icon: const Icon(Icons.portrait)),
-            MyListTile(title: 'Images', icon: const Icon(Icons.image)),
+            const MyListTile(title: 'Home', icon: Icon(Icons.home)),
+            const MyListTile(title: 'Profile', icon: Icon(Icons.portrait)),
+            const MyListTile(title: 'Images', icon: Icon(Icons.image)),
             Expanded(
               child: Container(),
             ),
@@ -94,11 +98,11 @@ class _MyHomePageState extends State<MyHomePage>
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  MyElevatedButton(
-                    const Text('Выход'),
+                  const MyElevatedButton(
+                    Text('Выход'),
                   ),
-                  MyElevatedButton(
-                    const Text('Регистрация'),
+                  const MyElevatedButton(
+                    Text('Регистрация'),
                   )
                 ],
               ),
@@ -143,6 +147,7 @@ class _MyHomePageState extends State<MyHomePage>
   }
 }
 
+// ignore: public_member_api_docs
 class MyFloatingActionButton extends StatefulWidget {
   @override
   _MyFloatingActionButtonState createState() => _MyFloatingActionButtonState();
@@ -156,6 +161,7 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
     return _show
         ? FloatingActionButton(
             onPressed: () {
+              // ignore: always_specify_types
               final PersistentBottomSheetController sheetController =
                   showBottomSheet(
                 context: context,
@@ -191,7 +197,7 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
                             ],
                           ),
                         ),
-                        MyElevatedButton(const Text('Оплатить')),
+                        const MyElevatedButton(Text('Оплатить')),
                       ],
                     ),
                   ),
@@ -258,7 +264,10 @@ class TabItem {
 // ignore: public_member_api_docs
 class MyListTile extends StatelessWidget {
   // ignore: public_member_api_docs
-  const MyListTile({@required this.title, @required this.icon});
+  const MyListTile({
+    @required this.title,
+    @required this.icon,
+  });
 
   // ignore: public_member_api_docs
   final String title;
