@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -46,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage>
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        actions: [
+        actions: <Widget>[
           Builder(
             builder: (BuildContext context) => IconButton(
               onPressed: Scaffold.of(context).openEndDrawer,
@@ -58,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
+        children: <Widget>[
           Container(
             color: Colors.white,
             child: const Center(child: Text('Photo')),
@@ -94,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage>
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 // ignore: prefer_const_literals_to_create_immutables
-                children: [
+                children: <Widget>[
                   const MyElevatedButton(
                     Text('Выход'),
                   ),
@@ -110,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage>
       endDrawer: Drawer(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
               child: CircleAvatar(
@@ -130,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage>
             _currentTabIndex = index;
           }),
           currentIndex: _currentTabIndex,
-          items: [
+          items: <BottomNavigationBarItem>[
             for (final TabItem item in _tabBar)
               BottomNavigationBarItem(
                 label: item.title,
@@ -156,20 +158,20 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
   Widget build(BuildContext context) {
     return _show
         ? FloatingActionButton(
-            onPressed: () {
-              // ignore: always_specify_types
-              final PersistentBottomSheetController sheetController =
-                  showBottomSheet(
-                context: context,
-                builder: (BuildContext context) => SizedBox(
-                  height: 150,
-                  child: Center(
-                    child: Column(
+      onPressed: () {
+        // ignore: always_specify_types
+        final PersistentBottomSheetController sheetController =
+        showBottomSheet(
+          context: context,
+          builder: (BuildContext context) => SizedBox(
+            height: 150,
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Row(
-                            children: [
                               Expanded(
                                 child: Container(
                                   alignment: Alignment.centerLeft,
@@ -181,31 +183,31 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
                                 child: Container(
                                   alignment: Alignment.centerLeft,
                                   child: const Text('Сумма'),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 2,
-                                child: Container(
-                                  alignment: Alignment.centerRight,
-                                  child: const Text('200 руб'),
-                                ),
-                              ),
-                            ],
                           ),
                         ),
-                        const MyElevatedButton(Text('Оплатить')),
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            alignment: Alignment.centerRight,
+                            child: const Text('200 руб'),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ),
-              );
-              _showButton(false);
-              sheetController.closed.then((value) {
+                  const MyElevatedButton(Text('Оплатить')),
+                ],
+              ),
+            ),
+          ),
+        );
+        _showButton(false);
+        sheetController.closed.then((FutureOr<dynamic> value) {
                 _showButton(true);
               });
-            },
-            child: const Icon(Icons.add),
-          )
+      },
+      child: const Icon(Icons.add),
+    )
         : Container();
   }
 
@@ -226,7 +228,7 @@ class MyElevatedButton extends StatelessWidget {
     return ElevatedButton(
         style: ButtonStyle(
           backgroundColor:
-              MaterialStateProperty.all<Color>(Colors.grey.shade400),
+          MaterialStateProperty.all<Color>(Colors.grey.shade400),
           textStyle: MaterialStateProperty.all(
             const TextStyle(
               color: Colors.black,
@@ -272,7 +274,7 @@ class MyListTile extends StatelessWidget {
   }
 }
 
-final List<TabItem> _tabBar = [
+final List<TabItem> _tabBar = <TabItem>[
   TabItem(title: 'Photo', icon: const Icon(Icons.home)),
   TabItem(title: 'Chat', icon: const Icon(Icons.chat)),
   TabItem(title: 'Album', icon: const Icon(Icons.album)),
