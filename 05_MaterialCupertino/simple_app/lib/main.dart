@@ -82,24 +82,9 @@ class _MyHomePageState extends State<MyHomePage>
                 backgroundColor: Colors.white,
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.portrait),
-              title: Text('Profile'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.image),
-              title: Text('Images'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {},
-            ),
+            MyListTile(title: 'Home', icon: Icon(Icons.home)),
+            MyListTile(title: 'Profile', icon: Icon(Icons.portrait)),
+            MyListTile(title: 'Images', icon: Icon(Icons.image)),
             Expanded(
               child: Container(),
             ),
@@ -259,6 +244,23 @@ class TabItem {
     @required this.title,
     @required this.icon,
   });
+}
+
+class MyListTile extends StatelessWidget {
+  final String title;
+  final Icon icon;
+
+  MyListTile({@required this.title, @required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: icon,
+      title: Text(title),
+      trailing: Icon(Icons.arrow_forward_ios),
+      onTap: () {},
+    );
+  }
 }
 
 final List<TabItem> _tabBar = [
