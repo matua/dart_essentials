@@ -1,10 +1,9 @@
-import "package:flutter/material.dart";
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-// ignore: public_member_api_docs
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -17,12 +16,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ignore: public_member_api_docs
 class MyHomePage extends StatefulWidget {
-  // ignore: public_member_api_docs
   const MyHomePage({Key key, @required this.title}) : super(key: key);
 
-  // ignore: public_member_api_docs
   final String title;
 
   @override
@@ -97,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage>
               padding: const EdgeInsets.only(bottom: 50),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   const MyElevatedButton(
                     Text('Выход'),
@@ -147,7 +144,6 @@ class _MyHomePageState extends State<MyHomePage>
   }
 }
 
-// ignore: public_member_api_docs
 class MyFloatingActionButton extends StatefulWidget {
   @override
   _MyFloatingActionButtonState createState() => _MyFloatingActionButtonState();
@@ -220,9 +216,7 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
   }
 }
 
-// ignore: public_member_api_docs
 class MyElevatedButton extends StatelessWidget {
-  // ignore: public_member_api_docs
   const MyElevatedButton(this._child);
 
   final Widget _child;
@@ -246,33 +240,25 @@ class MyElevatedButton extends StatelessWidget {
   }
 }
 
-// ignore: public_member_api_docs
 class TabItem {
-  // ignore: public_member_api_docs
   TabItem({
     @required this.title,
     @required this.icon,
   });
 
-  // ignore: public_member_api_docs
   String title;
 
-  // ignore: public_member_api_docs
   Icon icon;
 }
 
-// ignore: public_member_api_docs
 class MyListTile extends StatelessWidget {
-  // ignore: public_member_api_docs
   const MyListTile({
     @required this.title,
     @required this.icon,
   });
 
-  // ignore: public_member_api_docs
   final String title;
 
-  // ignore: public_member_api_docs
   final Icon icon;
 
   @override
