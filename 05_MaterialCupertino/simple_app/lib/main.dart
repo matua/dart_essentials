@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 void main() {
   runApp(MyApp());
 }
 
+// ignore: public_member_api_docs
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -47,9 +48,9 @@ class _MyHomePageState extends State<MyHomePage>
       appBar: AppBar(
         actions: [
           Builder(
-            builder: (context) => IconButton(
+            builder: (BuildContext context) => IconButton(
               onPressed: Scaffold.of(context).openEndDrawer,
-              icon: Icon(Icons.account_circle_rounded),
+              icon: const Icon(Icons.account_circle_rounded),
             ),
           ),
         ],
@@ -60,31 +61,31 @@ class _MyHomePageState extends State<MyHomePage>
         children: [
           Container(
             color: Colors.white,
-            child: Center(child: Text('Photo')),
+            child: const Center(child: Text('Photo')),
           ),
           Container(
             color: Colors.blue,
-            child: Center(child: Text('Chat')),
+            child: const Center(child: Text('Chat')),
           ),
           Container(
             color: Colors.red,
-            child: Center(child: Text('Albums')),
+            child: Center(child: const Text('Albums')),
           ),
         ],
       ),
       drawer: Drawer(
         child: Column(
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               child: CircleAvatar(
                 radius: 60,
                 backgroundImage: AssetImage('assets/flutter_logo.png'),
                 backgroundColor: Colors.white,
               ),
             ),
-            MyListTile(title: 'Home', icon: Icon(Icons.home)),
-            MyListTile(title: 'Profile', icon: Icon(Icons.portrait)),
-            MyListTile(title: 'Images', icon: Icon(Icons.image)),
+            MyListTile(title: 'Home', icon: const Icon(Icons.home)),
+            MyListTile(title: 'Profile', icon: const Icon(Icons.portrait)),
+            MyListTile(title: 'Images', icon: const Icon(Icons.image)),
             Expanded(
               child: Container(),
             ),
@@ -110,26 +111,26 @@ class _MyHomePageState extends State<MyHomePage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.only(bottom: 10),
               child: CircleAvatar(
                 backgroundColor: Colors.white,
                 radius: 54,
                 child: Image.asset('assets/skillbox_logo.png'),
               ),
             ),
-            Text('Jonathan')
+            const Text('Jonathan')
           ],
         ),
       ),
       bottomNavigationBar: BottomAppBar(
         child: BottomNavigationBar(
-          onTap: (index) => setState(() {
+          onTap: (int index) => setState(() {
             _tabController.index = index;
             _currentTabIndex = index;
           }),
           currentIndex: _currentTabIndex,
           items: [
-            for (final item in _tabBar)
+            for (final TabItem item in _tabBar)
               BottomNavigationBarItem(
                 label: item.title,
                 icon: item.icon,
@@ -154,38 +155,38 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
   Widget build(BuildContext context) {
     return _show
         ? FloatingActionButton(
-            child: const Icon(Icons.add),
             onPressed: () {
-              var sheetController = showBottomSheet(
+              final PersistentBottomSheetController sheetController =
+                  showBottomSheet(
                 context: context,
-                builder: (context) => Container(
+                builder: (BuildContext context) => SizedBox(
                   height: 150,
                   child: Center(
                     child: Column(
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Row(
                             children: [
                               Expanded(
                                 child: Container(
                                   alignment: Alignment.centerLeft,
-                                  child: Icon(Icons.credit_card),
+                                  child: const Icon(Icons.credit_card),
                                 ),
                               ),
                               Expanded(
                                 flex: 4,
                                 child: Container(
                                   alignment: Alignment.centerLeft,
-                                  child: Text('Сумма'),
+                                  child: const Text('Сумма'),
                                 ),
                               ),
                               Expanded(
+                                flex: 2,
                                 child: Container(
                                   alignment: Alignment.centerRight,
-                                  child: Text('200 руб'),
+                                  child: const Text('200 руб'),
                                 ),
-                                flex: 2,
                               ),
                             ],
                           ),
@@ -201,6 +202,7 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
                 _showButton(true);
               });
             },
+            child: const Icon(Icons.add),
           )
         : Container();
   }
@@ -212,8 +214,10 @@ class _MyFloatingActionButtonState extends State<MyFloatingActionButton> {
   }
 }
 
+// ignore: public_member_api_docs
 class MyElevatedButton extends StatelessWidget {
-  MyElevatedButton(this._child);
+  // ignore: public_member_api_docs
+  const MyElevatedButton(this._child);
 
   final Widget _child;
 
@@ -224,47 +228,57 @@ class MyElevatedButton extends StatelessWidget {
           backgroundColor:
               MaterialStateProperty.all<Color>(Colors.grey.shade400),
           textStyle: MaterialStateProperty.all(
-            TextStyle(
+            const TextStyle(
               color: Colors.black,
             ),
           ),
         ),
-        child: _child,
         onPressed: () {
           Navigator.pop(context);
-        });
+        },
+        child: _child);
   }
 }
 
+// ignore: public_member_api_docs
 class TabItem {
-  String title;
-  Icon icon;
-
+  // ignore: public_member_api_docs
   TabItem({
     @required this.title,
     @required this.icon,
   });
+
+  // ignore: public_member_api_docs
+  String title;
+
+  // ignore: public_member_api_docs
+  Icon icon;
 }
 
+// ignore: public_member_api_docs
 class MyListTile extends StatelessWidget {
-  final String title;
-  final Icon icon;
+  // ignore: public_member_api_docs
+  const MyListTile({@required this.title, @required this.icon});
 
-  MyListTile({@required this.title, @required this.icon});
+  // ignore: public_member_api_docs
+  final String title;
+
+  // ignore: public_member_api_docs
+  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: icon,
       title: Text(title),
-      trailing: Icon(Icons.arrow_forward_ios),
+      trailing: const Icon(Icons.arrow_forward_ios),
       onTap: () {},
     );
   }
 }
 
 final List<TabItem> _tabBar = [
-  TabItem(title: "Photo", icon: Icon(Icons.home)),
-  TabItem(title: "Chat", icon: Icon(Icons.chat)),
-  TabItem(title: "Album", icon: Icon(Icons.album)),
+  TabItem(title: 'Photo', icon: const Icon(Icons.home)),
+  TabItem(title: 'Chat', icon: const Icon(Icons.chat)),
+  TabItem(title: 'Album', icon: const Icon(Icons.album)),
 ];
