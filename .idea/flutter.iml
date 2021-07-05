@@ -6,6 +6,9 @@
       <excludeFolder url="file://$MODULE_DIR$/04_StatefulStatelessWidget/list_view_keys_scroll/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/04_StatefulStatelessWidget/list_view_keys_scroll/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/04_StatefulStatelessWidget/list_view_keys_scroll/build" />
+      <excludeFolder url="file://$MODULE_DIR$/05_MaterialCupertino/simple_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/05_MaterialCupertino/simple_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/05_MaterialCupertino/simple_app/build" />
       <excludeFolder url="file://$MODULE_DIR$/temp_5/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/temp_5/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/temp_5/build" />
