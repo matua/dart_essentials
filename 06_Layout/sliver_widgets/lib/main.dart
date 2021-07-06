@@ -36,12 +36,15 @@ class _MyHomePageState extends State<MyHomePage> {
         slivers: <Widget>[
           SliverAppBar(
             pinned: true,
-            // backgroundColor: Colors.black.withOpacity(0.5),
             expandedHeight: 230.0,
             flexibleSpace: FlexibleSpaceBar(
               title: const Text('Page title'),
-              background: Image.network('https://picsum.photos/200/300',
-                  fit: BoxFit.cover),
+              background: ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.5), BlendMode.overlay),
+                child: Image.network('https://picsum.photos/200/300',
+                    fit: BoxFit.cover),
+              ),
             ),
           ),
           SliverToBoxAdapter(
