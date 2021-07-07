@@ -21,6 +21,9 @@
       <excludeFolder url="file://$MODULE_DIR$/06_Layout/text_field_styled/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/06_Layout/text_field_styled/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/06_Layout/text_field_styled/build" />
+      <excludeFolder url="file://$MODULE_DIR$/07_Navigation/albums_route/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/07_Navigation/albums_route/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/07_Navigation/albums_route/build" />
       <excludeFolder url="file://$MODULE_DIR$/temp_5/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/temp_5/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/temp_5/build" />
