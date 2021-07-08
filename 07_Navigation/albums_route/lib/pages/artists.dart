@@ -18,12 +18,11 @@ class ArtistsPage extends StatelessWidget {
         body: Center(
             child: FutureBuilder<String>(
                 future: fetchFileFromAssets('assets/artists.json'),
-                builder: (BuildContext context,
-                    AsyncSnapshot<String> snapshot) {
+                builder:
+                    (BuildContext context, AsyncSnapshot<String> snapshot) {
                   if (snapshot.hasData) {
-                    final List<Artist> artists = ArtistsList
-                        .fromJson(snapshot.data)
-                        .artists;
+                    final List<Artist> artists =
+                        ArtistsList.fromJson(snapshot.data).artists;
                     return ListView.builder(
                         itemCount: artists.length,
                         itemBuilder: (BuildContext ctxt, int index) {
@@ -32,3 +31,4 @@ class ArtistsPage extends StatelessWidget {
                   }
                 })));
   }
+}
