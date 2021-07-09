@@ -1,12 +1,10 @@
-import 'dart:convert';
-
 class Artist {
   Artist({this.name, this.link, this.about});
 
-  factory Artist.fromJson(Map<String, dynamic> json) => Artist(
-        name: json['name'] as String,
-        link: json['link'] as String,
-        about: json['about'] as String,
+  factory Artist.fromJson(Map<String, dynamic> parsedJsonArtist) => Artist(
+        name: parsedJsonArtist['name'] as String,
+        link: parsedJsonArtist['link'] as String,
+        about: parsedJsonArtist['about'] as String,
       );
 
   String name;
@@ -19,25 +17,14 @@ class ArtistsList {
     this.artists,
   });
 
-  factory ArtistsList.fromJson(String jsonArtistsList) {
-    final artistsList = jsonDecode(jsonArtistsList) as List<Artist>;
-    return ArtistsList(artists: artistsList);
+  factory ArtistsList.fromJson(List<dynamic> parsedJsonArtists) {
+    final List<Artist> artists = parsedJsonArtists
+        .map((dynamic jsonArtist) =>
+            Artist.fromJson(jsonArtist as Map<String, dynamic>))
+        .toList();
+
+    return ArtistsList(artists: artists);
   }
 
   List<Artist> artists;
 }
-
-// class ArtistsList {
-//   ArtistsList({
-//     this.artists,
-//   });
-//
-//   factory ArtistsList.fromJson(List<Map<String, dynamic>> jsonArtistsList) {
-//     final List<Artist> artistsList = jsonArtistsList.map(
-//             (Map<String, dynamic> jsonArtist) =>
-//             Artist.fromJson(jsonArtist)).toList();
-//     return ArtistsList(artists: artistsList);
-//   }
-//
-//   List<Artist> artists;
-// }
