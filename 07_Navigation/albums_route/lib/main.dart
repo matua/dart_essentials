@@ -1,5 +1,6 @@
 import 'package:albums_route/pages/artist_details.dart';
 import 'package:albums_route/pages/artists.dart';
+import 'package:albums_route/routes.dart';
 import 'package:albums_route/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -17,17 +18,16 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: const MyHomePage(),
       initialRoute: '/',
       onUnknownRoute: (RouteSettings settings) {
         return MaterialPageRoute<dynamic>(builder: (BuildContext context) {
           return NotFound();
         });
       },
-      routes: {
-        MyHomePage.routeName: (BuildContext context) => const MyHomePage(),
-        ArtistsPage.routeName: (BuildContext context) => const ArtistsPage(),
-        ArtistDetailsPage.routeName: (BuildContext context) =>
+      routes: <String, Widget Function(BuildContext)>{
+        Routes.home: (BuildContext context) => const MyHomePage(),
+        Routes.artists: (BuildContext context) => const ArtistsPage(),
+        Routes.artistDetails: (BuildContext context) =>
             const ArtistDetailsPage(),
       },
     );

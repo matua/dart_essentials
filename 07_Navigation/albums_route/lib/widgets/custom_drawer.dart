@@ -22,8 +22,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
         padding: const EdgeInsets.only(top: 30),
         children: <Widget>[
           _createDrawerItem(
-              text: 'Home',
               selected: !_selected,
+              text: 'Home',
               onTap: () {
                 Navigator.pushReplacementNamed(context, Routes.home);
                 if (_selected) {
@@ -31,8 +31,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 }
               }),
           _createDrawerItem(
-              text: 'Artists',
               selected: _selected,
+              text: 'Artists',
               onTap: () {
                 Navigator.pushReplacementNamed(context, Routes.artists);
                 if (!_selected) {
@@ -45,8 +45,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   }
 }
 
-Widget _createDrawerItem(
-    {String text, bool selected, GestureTapCallback onTap}) {
+Widget _createDrawerItem({bool selected, String text, Function() onTap}) {
   return ListTile(
     selected: selected,
     title: Row(
