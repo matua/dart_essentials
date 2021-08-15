@@ -1,5 +1,6 @@
 import 'package:albums_route/pages/artist_details.dart';
 import 'package:albums_route/pages/artists.dart';
+import 'package:albums_route/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       // home: const MyHomePage(),
       initialRoute: '/',
       onUnknownRoute: (RouteSettings settings) {
-        return MaterialPageRoute(builder: (BuildContext context) {
+        return MaterialPageRoute<dynamic>(builder: (BuildContext context) {
           return NotFound();
         });
       },
@@ -36,8 +37,11 @@ class MyApp extends StatelessWidget {
 class NotFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return const Center(
+        child: Text(
+      'Page does not exist',
+      textAlign: TextAlign.center,
+    ));
   }
 }
 
@@ -51,49 +55,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static bool _selected = false;
-
-  void _toggleActive() {
-    setState(() {
-      _selected = !_selected;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: <ListTile>[
-            ListTile(
-              selected: !_selected,
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  MyHomePage.routeName,
-                );
-                if (_selected) {
-                  _toggleActive();
-                }
-              },
-            ),
-            ListTile(
-              selected: _selected,
-              title: const Text('Artists'),
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  ArtistsPage.routeName,
-                );
-                if (!_selected) {
-                  _toggleActive();
-                }
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(),
       appBar: AppBar(
         title: const Text('Routes'),
       ),
