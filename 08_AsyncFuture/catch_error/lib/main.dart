@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Catch error'),
       ),
       body: FutureBuilder<String>(
-        future: fetchFileFromAssets('assets/somefile.txt'),
+        future: fetchFileFromAssets('assets/data.txt'),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
