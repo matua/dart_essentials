@@ -27,6 +27,18 @@
       <excludeFolder url="file://$MODULE_DIR$/temp_5/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/temp_5/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/temp_5/build" />
+      <excludeFolder url="file://$MODULE_DIR$/temp_87/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/temp_87/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/temp_87/build" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/catch_error/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/catch_error/build" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/catch_error/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/future_stream_builder/build" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/future_stream_builder/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/future_stream_builder/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/load_file/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/load_file/build" />
+      <excludeFolder url="file://$MODULE_DIR$/08_AsyncFuture/load_file/.pub" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

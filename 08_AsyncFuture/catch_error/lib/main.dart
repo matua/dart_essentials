@@ -1,5 +1,6 @@
-import 'package:catch_error/fetch_file.dart';
 import 'package:flutter/material.dart';
+
+import 'fetch_file.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,13 +16,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  const MyHomePage({Key key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -32,25 +33,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Catch error'),
+        title: const Text('Catch error'),
       ),
       body: FutureBuilder<String>(
         future: fetchFileFromAssets('assets/somefile.txt'),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
-              return Center(
+              return const Center(
                 child: Text('NONE'),
               );
               break;
             case ConnectionState.waiting:
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
               break;
             case ConnectionState.done:
-              return SingleChildScrollView(child: Text(snapshot.data));
+              return SingleChildScrollView(
+                  child: Text(snapshot.data.toString()));
               break;
             default:
-              return SingleChildScrollView(
+              return const SingleChildScrollView(
                 child: Text('Default'),
               );
           }
